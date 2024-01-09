@@ -1,0 +1,70 @@
+﻿@model Logos.Models.ViewModel.Home.HomeProfileViewModel
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Your Website</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="~/css/Index.css" />
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+			<div class="container-fluid">
+				<a class="navbar-brand ms-lg-5 " asp-controller="Home" asp-action="Index">Logos</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarColor02">
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item">
+							<a class="nav-link active" asp-controller="Home" asp-action="Profile">Account</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Home" asp-action="Settings">Settings</a>
+						</li>
+
+					</ul>
+					<a asp-action="Exit" asp-controller="Home"><i class="bi bi-box-arrow-right"></i></a>
+					<div class="ms-lg-1" id="userName" style="margin-right: 10px">
+						@Model.UserName
+					</div>
+
+				</div>
+			</div>
+		</nav>
+	</header>
+	<main class="p-3">
+		<table class="table table-dark table-striped mt-1">
+			<thead>
+				<tr>
+					<th scope="col-2">Id</th>
+					<th scope="col">Courier Name</th>
+					<th scope="col">Number</th>
+					<th scope="col">Location</th>
+				</tr>
+			</thead>
+			<tbody>
+				@{
+					for (int i = 0; i < Model.Orders.Count(); i++)
+					{
+
+						<tr>
+
+							<th scope="col-2">@Model.Orders[i]._id.ToString()</th>
+							<th scope="col">@Model.Orders[i].CourierName</th>
+							<th scope="col">@Model.Orders[i].Number</th>
+							<th scope="col">@Model.Orders[i].Location</th>
+
+						</tr>
+
+					}
+				}
+			</tbody>
+		</table>
+	</main>
+</body>
+</html>

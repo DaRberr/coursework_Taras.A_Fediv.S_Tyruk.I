@@ -1,0 +1,81 @@
+﻿@model Logos.Models.ViewModel.RegisterViewModel;
+
+<header>
+	<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+		<div class="container-fluid">
+			<div class="container">
+				<div class="row justify-content-md-center">
+					<div class="col col-lg-2">
+					</div>
+					<div class="col-md-auto">
+						<a class="navbar-brand ms-lg-5 " style="text-align:center" asp-controller="Home" asp-action="Index">Logos</a>
+					</div>
+					<div class="col col-lg-2">
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>
+
+
+
+<div class="container px-4">
+	<div class="row gx-5">
+		<div class="col-5 mt-5">
+			<div class="p-2 border bg-light">
+				<h2 style="text-align:center">Login to the system</h2>
+				<form method="post" asp-controller="Account" asp-action="Register">
+					<div asp-validation-summary="ModelOnly"></div>
+
+					<div class="form-group">
+						<label for="exampleInputEmail1" class="form-label mt-4" asp-for="FirstName">FirstName</label>
+						<input type="text" class="form-control" placeholder="Enter Name" asp-for="FirstName">
+						<span asp-validation-for="FirstName"></span>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1" class="form-label mt-4" asp-for="LastName">Email LastName</label>
+						<input type="text" class="form-control" placeholder="Enter Last Name" asp-for="LastName">
+						<span asp-validation-for="LastName"></span>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+						<input type="email" class="form-control" placeholder="Enter email" asp-for="Email">
+						<span asp-validation-for="Email"></span>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1" class="form-label mt-4" asp-for="Password">Password</label>
+						<input type="password" class="form-control" placeholder="Password" autocomplete="off" asp-for="Password">
+						<span asp-validation-for="Password"></span>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1" class="form-label mt-4" asp-for="PasswordConfirm">Current Password</label>
+						<input type="password" class="form-control" placeholder="Password" autocomplete="off" asp-for="PasswordConfirm">
+						<span asp-validation-for="PasswordConfirm"></span>
+					</div>
+					<div class="container px-5">
+						<div class="row gx-5">
+							<div class="col">
+								<div class="ms-lg-5 mt-1">
+									<button type="submit" class="btn btn-outline-success mt-2">Sing in</button>
+								</div>
+							</div>
+							<div class="col">
+								<div class="p-1">
+									<a class="btn btn-light mt-2" asp-controller="Account" asp-action="Login">Login</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>		
+		<div class="col">
+			<div class="ms-lg-5">
+				<img src="~/Image/ClearEat.png" style="max-height:1200px; max-width: 500px; " />
+			</div>
+		</div>
+	</div>
+</div>
+
+

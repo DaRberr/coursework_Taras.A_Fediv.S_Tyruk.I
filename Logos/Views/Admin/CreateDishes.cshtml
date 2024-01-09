@@ -1,0 +1,42 @@
+﻿@model Logos.Entities.Dish
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<header>
+	<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+		<div class="container-fluid">
+			<a class="navbar-brand ms-lg-5 " asp-controller="Home" asp-action="Index">Logos</a>
+		</div>
+	</nav>
+</header>
+
+
+<form method="post" asp-controller="Admin" asp-action="CreateDishes" class="p-5">
+	<div asp-validation-summary="ModelOnly"></div>
+
+	<div class="form-group">
+		<label for="exampleInputEmail1" class="form-label mt-4" asp-for="Title">Title</label>
+		<input type="text" class="form-control" placeholder="Enter Title" name='Title' asp-for="Title" required>
+		<span asp-validation-for="Title"></span>
+	</div>
+	<div class="form-group">
+		<label for="exampleInputEmail1" class="form-label mt-4" asp-for="Description">Description</label>
+		<textarea type="text" class="form-control" placeholder="Enter Description" name='Description' asp-for="Description" style="min-height:175px;" required></textarea>
+		<span asp-validation-for="Description"></span>
+	</div>
+	<div class="form-group">
+		<label for="exampleInputEmail1" class="form-label mt-4">Price</label>
+		<input type="number" class="form-control" placeholder="155$" name='Price' asp-for="Price" required>
+		<span asp-validation-for="Price"></span>
+	</div>
+	<div class="form-group">
+		<label for="exampleInputPassword1" class="form-label mt-4" asp-for="UrlOnPhoto">Name Photo</label>
+		<input type="text" class="form-control" placeholder="Name photo: name.png" name='UrlOnPhoto' asp-for="UrlOnPhoto" required>
+		<span asp-validation-for="UrlOnPhoto"></span>
+	</div>
+
+	<button type="submit" class="btn btn-outline-success mt-1">Create</button>
+</form>
